@@ -4,10 +4,14 @@
 		     version-control
 		     fonts
 		     ssh
+		     video
+		     xorg
 		     mail
 		     lisp
 		     curl
                      xdisorg
+		     aspell
+		     zip
 		     wget
 		     emacs
 		     conkeror
@@ -32,7 +36,8 @@
 			    (group "users")
 			    (supplementary-groups '("wheel" "netdev"
 						    "audio" "video"))
-			    (home-directory "/home/toni"))
+			    (home-directory "/home/toni")
+			    (shell #~(string-append #$zsh "/bin/zsh")))
 	      %base-user-accounts))
 
  ;; This is where we specify system-wide packages.
@@ -40,13 +45,22 @@
 		  emacs
 		  git
 		  sbcl
-		  sbcl-stumpwm
+		  (list sbcl-stumpwm "bin")
+		  vlc
+		  youtube-dl
 		  wget
 		  curl
 		  tmux
 		  conkeror
+		  openssh
+		  aspell
+		  aspell-dict-en
+		  aspell-dict-es
+		  unzip
 		  rxvt-unicode
 		  zsh
+		  xrdb
+		  xbacklight
 		  offlineimap
 		  font-fira-mono
 		  %base-packages))
